@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { SignupForm } from "./components/shared/SignupForm";
 import { MessageCircleMore } from "lucide-react";
 import { nanoid } from "nanoid";

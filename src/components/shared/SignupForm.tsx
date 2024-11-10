@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -39,7 +38,7 @@ const formSchema = z.object({
 export function SignupForm() {
   const {toast} = useToast()
   const navigate = useNavigate()
-  const {handleUser, user} = useAuth()
+  const {handleUser} = useAuth()
   console.log(import.meta.env)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
