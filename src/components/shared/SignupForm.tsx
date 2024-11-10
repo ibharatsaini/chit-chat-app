@@ -70,7 +70,8 @@ export function SignupForm() {
      email,
      username,
      password
-    }).then(data=>data).catch(err=>{
+    }).catch(err=>{
+        console.log(err.response.data.error.message)
       toast({
         // title`
         variant: "destructive",
@@ -79,7 +80,7 @@ export function SignupForm() {
 
       })
       return err.response.data.error.message
-    })
+    }).then(data=>data)
     console.log(data.jwt)
     setToken(data.jwt)
     if(data.jwt){
