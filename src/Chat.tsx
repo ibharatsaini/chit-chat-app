@@ -39,7 +39,6 @@ function Chat() {
 
     loadMessages();
     // Listen for messages from the server
-    console.log(socket);
     socket.on("message", async (serverMessage: string) => {
       setMessages((prevMessages: Messages[]) => [
         ...prevMessages,
@@ -81,6 +80,9 @@ function Chat() {
   //On new message update the view and local storage
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    console.log(
+        messages,chatId
+    )
     messages.length > 0 && saveMessage(chatId, messages);
   }, [messages]);
 
