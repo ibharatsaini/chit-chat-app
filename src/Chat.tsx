@@ -86,11 +86,11 @@ function Chat() {
 
   return (
     <div className="  w-full h-full flex  flex-col">
-      <div className="w-full p-auto h-full flex flex-col gap-3 max-h-[calc(100vh-80px)] overflow-auto">
+      <div className="w-full p-auto h-full flex flex-col gap-3 pb-auto max-h-[calc(100vh-80px)] overflow-auto">
         {messages.map((msg: Messages, index: number) => (
           <div
             key={index}
-            className="flex w-full px-2 sm:px-10  lg:p-0 lg:w-[700px] xl:w-[900px] m-auto  flex-col"
+            className={`${"flex w-full px-2 sm:px-10  lg:p-0 mx-auto lg:w-[700px] xl:w-[900px]   flex-col"} ${index==0 ? "mt-auto" : ""}`}
           >
             {msg.fromUser ? (
               <div className="flex flex-row ml-auto gap-2 mt-2">
@@ -143,8 +143,8 @@ function Chat() {
         ))}
         <div className="h-10" ref={chatEndRef} />
       </div>
-      <div className="flex w-full mt-auto gap-3 px-2 sm:px-10 lg:px-20 xl:px-40">
-        <Input  
+      <div className="flex w-full mt-auto gap-3 px-2 sm:px-10 lg:px-20 xl:px-40 sticky">
+        <Input
           type="text"
           placeholder="Type here.."
           className="item-end mb-8"
