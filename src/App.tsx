@@ -1,37 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from './components/ui/button'
+import "./App.css";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
+import Chat from "./Chat";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./context/auth-provider";
+import { useEffect } from "react";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const navigate = useNavigate();
+
+  const { user, loadingUser } = useAuth();
+  console.log(user);
+  useEffect(() => {
+    if (!loadingUser && !user) navigate(`/login`);
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        {/* <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button> */}
-        <Button onClick={() => setCount((count) => count + 1)}>Count is {count}</Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <SidebarProvider>
+        <AppSidebar />
+        <SidebarTrigger className="ml-1 h-8 w-8 mt-1" />
+
+        <main className="flex justify-center w-full">
+          <Chat />
+        </main>
+      </SidebarProvider>
+
     </>
-  )
+  );
 }
 
-export default App
+export default App;
