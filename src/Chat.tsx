@@ -90,7 +90,9 @@ function Chat() {
         {messages.map((msg: Messages, index: number) => (
           <div
             key={index}
-            className={`${"flex w-full px-2 sm:px-10  lg:p-0 mx-auto lg:w-[700px] xl:w-[900px]   flex-col"} ${index==0 ? "mt-auto" : ""}`}
+            className={`${"flex w-full px-2 sm:px-10  lg:p-0 mx-auto lg:w-[700px] xl:w-[900px]   flex-col"} ${
+              index == 0 ? "mt-auto" : ""
+            }`}
           >
             {msg.fromUser ? (
               <div className="flex flex-row ml-auto gap-2 mt-2">
