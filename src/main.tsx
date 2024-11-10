@@ -3,9 +3,10 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { ThemeProvider } from "./context/theme-provider.tsx";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signup from "./Signup.tsx";
 import Login from "./Login.tsx";
+import { AuthProvider } from "./context/auth-provider.tsx";
 
 
 const router = createBrowserRouter([
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <Login />
   },
 
 ]);
@@ -25,7 +26,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <App />
+      <AuthProvider>
+      <RouterProvider router={router} />
+
+      </AuthProvider>
     </ThemeProvider>
   </StrictMode>
 );
