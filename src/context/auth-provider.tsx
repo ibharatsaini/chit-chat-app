@@ -34,7 +34,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     const jwt = getTokenFromLocalCookie();
 
     (async function () {
-    const API_DOMAIN = import.meta.env.VITE_ENVIRONEMNT == 'production' ? import.meta.env.VITE_API_DOMAIN : 'http://localhost:1337'
+    const API_DOMAIN = import.meta.env.VITE_ENVIRONMENT == 'production' ? import.meta.env.VITE_API_DOMAIN : 'http://localhost:1337'
 
       const { data } = await axios
         .get(`${API_DOMAIN}/api/users/me`, {
