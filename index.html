@@ -1,6 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.amplitude.com/script/6e5b6e00747f04ccf24f9f908136da74.js"></script>
+    <script>
+      window.amplitude.add(window.sessionReplay.plugin({ sampleRate: 1 }));
+      window.amplitude.init("6e5b6e00747f04ccf24f9f908136da74", {
+        fetchRemoteConfig: true,
+        autocapture: true,
+      });
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

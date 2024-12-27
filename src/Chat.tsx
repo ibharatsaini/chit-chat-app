@@ -16,7 +16,7 @@ interface Messages {
 
 function Chat() {
   const [messages, setMessages] = useState<Messages[]>([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string>("");
   const socket = useSocket();
   const { chatId } = useParams();
   const chatEndRef = useRef<any>(null);
